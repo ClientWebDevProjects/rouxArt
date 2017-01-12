@@ -35,7 +35,6 @@ bower_components/
 *.log
 *.sql
 *.sqlite
-notes.md
 
 # OS generated files #
 ######################
@@ -54,3 +53,7 @@ lib-cov
 # Coverage directory used by tools like istanbul #
 #################################################
 coverage
+
+# Other folders
+notes.md
+public/images
