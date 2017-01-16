@@ -1,3 +1,22 @@
 <article class="speakerslist">
-  
-</article>
+  <section class="layout">
+    <div class="speakers">
+      <% artists.forEach(({name, title, shortname}) => { %>
+        <article class="artist group">
+          
+          <h3><%= title %> <span class="small">with</span>
+            <a href="/speakers/<%= shortname %>"><%= name %></a>
+          </h3>
+          
+          <p>
+            <a href="/speakers/<%= shortname %>">
+              <img class="speaker" src="/images/speakers/<%= shortname %>_tn.jpg" alt="Photo of <%= name %>">
+            </a>            
+          </p>
+
+        </article><!-- artist -->
+      <% }); %>  
+    </div><!-- speakers -->
+  </section><!-- layout -->
+</article><!-- speakerlist -->
+
