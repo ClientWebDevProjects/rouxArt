@@ -18,7 +18,8 @@ router.get('/', (req, res, next) => {
 
   res.render('index', {
     title: 'Home',
-    artwork: myArtwork 
+    artwork: myArtwork,
+    artists: appdata.speakers 
   });
 });
 
@@ -29,23 +30,28 @@ router.get('/speakers', (req, res, next) => {
   
   res.render('speakers', {
     title: 'Speakers', 
-    artwork: myArtwork
+    artwork: myArtwork,
+    artists: appdata.speakers
   });
 });
 
 /*Individual speaker page*/
 router.get('/speakers/:speakerid', (req, res, next) => {
 
-  let myArtwork = [];    
-  appdata.speakers.forEach(({artwork, shortname}) => {
-    if(shortname === req.params.speakerid) { //only add this user's artwork
-      myArtwork = myArtwork.concat(artwork);
+  let myArtwork = [];
+  let myArtists = [];    
+  appdata.speakers.forEach((item) => {
+    //only add this user's artwork
+    if(item.shortname === req.params.speakerid) { 
+      myArtwork = myArtwork.concat(item.artwork);
+      myArtists.push(item);
     }
   });
 
   res.render('speakers', {
     title: 'Speakers', 
-    artwork: myArtwork
+    artwork: myArtwork,
+    artists: myArtists
   });
 });
 
